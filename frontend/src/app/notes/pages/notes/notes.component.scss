@@ -1,0 +1,43 @@
+@use '../../../../styles/mixins/vars' as vars;
+
+
+.notes-grid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+
+  .edit-icon {
+    @include vars.icon();
+    color: rgba(229, 201, 92, 0.85);
+    margin-right: 0.5rem;
+
+    &:hover,
+    :focus {
+      color: rgba(229, 201, 92, 0.7);
+      background: rgba(169, 167, 167, 0.2);
+    }
+
+    &:active {
+      background: rgba(169, 167, 167, 0.88);
+    }
+  }
+
+  .delete-icon {
+    @include vars.icon();
+    color: rgba(255, 65, 65, 0.85);
+
+    &:hover,
+    :focus {
+      color: rgba(255, 65, 65, 1);
+      background: rgba(169, 167, 167, 0.5);
+    }
+
+    &:active {
+      background: rgba(169, 167, 167, 0.88);
+    }
+  }
+}

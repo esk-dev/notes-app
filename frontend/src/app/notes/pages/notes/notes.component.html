@@ -1,0 +1,15 @@
+<notes-container>
+  <section class="notes-grid">
+    @for (note of notes(); track note.id) {
+      <notes-note-card [note]="note">
+        @if (note.reminder) {
+          <notes-reminder-widget [reminder]="note.reminder" />
+        } @else {
+          <notes-create-reminder [note]="note"></notes-create-reminder>
+        }
+        <mat-icon (click)="redirectToEditPage(note)" [matTooltip]="'Редактировать заметку'" class="edit-icon">edit</mat-icon>
+        <mat-icon (click)="requestDeleteNote(note)" [matTooltip]="'Удалить заметку'" class="delete-icon"> delete </mat-icon>
+      </notes-note-card>
+    }
+  </section>
+</notes-container>

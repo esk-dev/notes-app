@@ -1,0 +1,35 @@
+<notes-container>
+  <mat-card class="auth-card">
+    <mat-card-header> <h3>Регистрация </h3></mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Имя пользователя </mat-label>
+          <input matInput type="text" name="username" [formControl]="form.controls.username" formControlName="username" />
+        </mat-form-field>
+        <notes-form-error [control]="form.controls.username" [validationMessagesMap]="AUTH_FORM_VALIDATORS.username" />
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Email </mat-label>
+          <input matInput type="email" name="email" [formControl]="form.controls.email" formControlName="email" />
+        </mat-form-field>
+        <notes-form-error [control]="form.controls.email" [validationMessagesMap]="AUTH_FORM_VALIDATORS.email" />
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Пароль </mat-label>
+          <input matInput type="password" name="password" [formControl]="form.controls.password" formControlName="password" />
+        </mat-form-field>
+        <notes-form-error [control]="form.controls.password" [validationMessagesMap]="AUTH_FORM_VALIDATORS.password" />
+      </form>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="form.disabled">Зарегистрироваться</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      @if (loading$ | async) {
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      }
+    </mat-card-footer>
+  </mat-card>
+</notes-container>

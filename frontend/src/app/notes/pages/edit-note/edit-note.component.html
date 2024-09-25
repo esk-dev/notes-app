@@ -1,0 +1,6 @@
+<notes-container>
+  <notes-note-form [form]="form" />
+  <div class="action-btns">
+    <button mat-flat-button color="accent" [disabled]="form.invalid || form.disabled" (click)="onSubmit()">Сохранить</button>
+  </div>
+</notes-container>

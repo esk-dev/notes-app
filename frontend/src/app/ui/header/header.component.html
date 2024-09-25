@@ -1,0 +1,30 @@
+<mat-toolbar class="mat-toolbar">
+  <span>Notes App</span>
+
+  @if (showMenu$ | async) {
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <nav class="nav-menu">
+        @for (navLink of links$ | async; track navLink.route) {
+          <notes-link [navLink]="navLink" />
+        }
+        @if (isLoggedIn$ | async) {
+          <button mat-flat-button class="logout" (click)="onLogout()">Выйти</button>
+        }
+      </nav>
+    </mat-menu>
+  } @else {
+    <nav class="nav-links">
+      @for (navLink of links$ | async; track navLink.route) {
+        <notes-link [navLink]="navLink" />
+      }
+      @if (isLoggedIn$ | async) {
+        <button mat-icon-button title="Выйти" (click)="onLogout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      }
+    </nav>
+  }
+</mat-toolbar>

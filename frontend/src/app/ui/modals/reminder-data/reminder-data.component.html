@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>{{ modalData?.note?.title || '' }}</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Выберите дату и время</mat-label>
+    <input [(ngModel)]="reminderDate" matInput type="datetime-local" placeholder="start date" />
+    <mat-hint>Для выбора нажмите <strong>Пробел</strong></mat-hint>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button (click)="onNoClick()">Закрыть</button>
+  <button mat-button [mat-dialog-close]="reminderDate()" cdkFocusInitial>Создать</button>
+</mat-dialog-actions>

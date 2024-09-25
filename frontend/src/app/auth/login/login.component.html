@@ -1,0 +1,26 @@
+<notes-container>
+  <mat-card class="auth-card">
+    <mat-card-header><h3>Логин</h3> </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="form">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Имя пользователя </mat-label>
+          <input matInput type="email" name="email" [formControl]="form.controls.username" formControlName="username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label> Пароль </mat-label>
+          <input matInput type="password" name="password" [formControl]="form.controls.password" formControlName="password" />
+        </mat-form-field>
+      </form>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="accent" (click)="onSubmit()" [disabled]="form.disabled">Авторизоваться</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      @if (loading$ | async) {
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      }
+    </mat-card-footer>
+  </mat-card>
+</notes-container>

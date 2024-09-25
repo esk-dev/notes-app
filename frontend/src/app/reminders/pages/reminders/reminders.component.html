@@ -1,0 +1,9 @@
+<notes-container>
+  <section class="reminders-grid">
+    @for (reminder of reminders(); track reminder.id) {
+      <notes-note-card [note]="reminder.note" >
+        <notes-reminder-widget [reminder]="reminder.reminderDate"></notes-reminder-widget>
+      </notes-note-card>
+    }
+  </section>
+</notes-container>

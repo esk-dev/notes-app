@@ -1,0 +1,11 @@
+@if (notification$ | async; as notification) {
+  <span matSnackBarLabel>
+    {{ notification.title }}<br/>
+    {{ notification.message }}
+  </span>
+}
+<span matSnackBarAction>
+  <button mat-icon-button color="warn" (click)="snackBarRef.dismiss()">
+    <mat-icon>close</mat-icon>
+  </button>
+</span>

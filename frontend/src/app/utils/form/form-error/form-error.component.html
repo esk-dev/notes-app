@@ -1,0 +1,3 @@
+@for (message of messages$ | async; track message) {
+  <mat-error>{{ message }}</mat-error>
+}

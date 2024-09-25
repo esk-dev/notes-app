@@ -1,0 +1,32 @@
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label>Добавьте тег</mat-label>
+    <mat-chip-grid #chipGrid>
+      @for (tag of value$ | async; track tag) {
+        <mat-chip-row [removable]="true" (removed)="remove(tag)">
+          {{ tag.tagName }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      }
+    </mat-chip-grid>
+    <input
+      [disabled]="Boolean(isDisabled$ | async)"
+      placeholder="Введите название тега"
+      #input
+      [formControl]="tagsCntrl"
+      [matChipInputFor]="chipGrid"
+      [matAutocomplete]="auto"
+      [matChipInputAddOnBlur]="false"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      (matChipInputTokenEnd)="add($event)"
+    />
+    <mat-hint>Для добавления тега нажмите ENTER</mat-hint>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      @for (matchedTag of matchedTags$ | async; track matchedTag) {
+        <mat-option [value]="matchedTag">{{ matchedTag.tagName }}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

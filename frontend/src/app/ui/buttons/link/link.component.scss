@@ -1,0 +1,14 @@
+@use 'src/styles/colors/_variables.scss' as vars;
+
+:host {
+  display: block;
+  width: 100%;
+
+  a {
+    width: 100%;
+  }
+
+  a.accent {
+    background-color: rgba(216, 216, 216, 0.38);
+  }
+}

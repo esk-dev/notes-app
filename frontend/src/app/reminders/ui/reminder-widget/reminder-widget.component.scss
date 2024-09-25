@@ -1,0 +1,17 @@
+@use '../../../../styles/mixins/vars' as vars;
+
+.reminder-icon {
+  @include vars.icon();
+  margin-right: 0.5rem;
+  color: rgba(65, 170, 255, 0.85);
+
+  &:hover,
+  :focus {
+    color: rgb(65, 198, 255, 1);
+    background: rgba(169, 167, 167, 0.5);
+  }
+
+  &:active {
+    background: rgba(169, 167, 167, 0.88);
+  }
+}

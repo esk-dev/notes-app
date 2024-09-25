@@ -1,0 +1,8 @@
+<form [formGroup]="form">
+  <notes-note-title [control]="form.controls['title']" />
+  <notes-form-error [control]="form.controls['title']" [validationMessagesMap]="NOTE_FORM_VALIDATORS.title" />
+  <notes-note-content [control]="form.controls['content']" />
+  <notes-form-error [control]="form.controls['content']" [validationMessagesMap]="NOTE_FORM_VALIDATORS.content" />
+  <notes-tags-autocomplete-control [formControl]="form.controls['tags']" />
+  <notes-form-error [control]="form.controls['tags']" [validationMessagesMap]="NOTE_FORM_VALIDATORS.tags" />
+</form>

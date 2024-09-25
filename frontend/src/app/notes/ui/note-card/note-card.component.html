@@ -1,0 +1,27 @@
+<div class="card-header">
+  <h3>
+    {{ note().title }}
+  </h3>
+  <div class="actions">
+    <ng-content></ng-content>
+  </div>
+</div>
+<mat-divider />
+<div class="card-content">
+  {{ note().content }}
+</div>
+<div class="card-footer">
+  <div class="tags-container">
+    @for (tag of note().tags; track tag.id) {
+      <notes-tag-badge [tag]="tag" />
+    }
+  </div>
+  <div class="meta">
+    <small>
+      Создано: <b>{{ note().createdAt | date: 'dd MMMM yyyy, HH:mm' }}</b>
+    </small>
+    <small>
+      Редактировано: <b> {{ note().createdAt | date: 'dd MMMM yyyy, HH:mm' }}</b>
+    </small>
+  </div>
+</div>

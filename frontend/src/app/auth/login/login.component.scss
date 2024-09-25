@@ -1,0 +1,31 @@
+@use '../../../styles/mixins/media-query' as devices;
+.full-width {
+  width: 100%;
+}
+
+.auth-card {
+  width: 100%;
+  min-width: 200px;
+  margin: 5rem auto;
+
+  mat-card-content {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  mat-card-actions {
+    button {
+      margin: 0 auto;
+    }
+  }
+  @include devices.media-web() {
+    width: 30%;
+  }
+
+  @include devices.media-tablet() {
+    width: 50%;
+  }
+}

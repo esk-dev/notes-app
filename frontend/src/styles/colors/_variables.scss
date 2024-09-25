@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+$dark-primary: mat.define-palette(mat.$gray-palette);
+$dark-accent: mat.define-palette(mat.$blue-palette);
+$dark-warn: mat.define-palette(mat.$red-palette);
+
+$light-primary: mat.define-palette(mat.$blue-grey-palette);
+$light-accent: mat.define-palette(mat.$blue-palette);
+$light-warn: mat.define-palette(mat.$red-palette);
+
+$palette: ($dark-primary, $dark-accent, $dark-warn, $light-primary, $light-accent, $light-warn);
+
+
+@function get-color($keys...) {
+  $value: $palette;
+
+  @each $key in $keys {
+    $value: map-get($value, $key);
+  }
+
+  @return $value;
+}
